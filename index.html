@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto y Blog</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
+        section {
+            margin: 20px 0;
+        }
+        form {
+            background: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        input, textarea, button {
+            display: block;
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #333;
+            color: white;
+            cursor: pointer;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+            background-color: #333;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Información de Contacto</h1>
+</header>
+
+<section id="contact">
+    <h2>Datos de Contacto</h2>
+    <p><strong>Nombre:</strong> Reynaldo Villarreal</p>
+    <p><strong>Email:</strong> reynaldo@example.com</p>
+    <p><strong>Teléfono:</strong> +507 1234-5678</p>
+    <p><strong>Ubicación:</strong> Ciudad de Panamá, Panamá</p>
+</section>
+
+<section id="blog">
+    <h2>Subir Entrada de Blog</h2>
+    <form id="blogForm">
+        <label for="title">Título de la Entrada:</label>
+        <input type="text" id="title" name="title" required>
+
+        <label for="content">Contenido:</label>
+        <textarea id="content" name="content" rows="5" required></textarea>
+
+        <button type="button" onclick="addEntry()">Subir Entrada</button>
+    </form>
+</section>
+
+<section id="entries">
+    <h2>Entradas del Blog</h2>
+    <div id="blogEntries">
+        <!-- Las entradas del blog aparecerán aquí -->
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2024 Reynaldo Villarreal. Todos los derechos reservados.</p>
+</footer>
+
+<script>
+    function addEntry() {
+        const title = document.getElementById('title').value;
+        const content = document.getElementById('content').value;
+
+        if (title && content) {
+            // Crear un contenedor para la nueva entrada
+            const newEntry = document.createElement('div');
+            newEntry.style.border = '1px solid #ccc';
+            newEntry.style.margin = '10px 0';
+            newEntry.style.padding = '10px';
+            newEntry.style.background = '#fff';
+            newEntry.style.borderRadius = '5px';
+
+            // Añadir el título
+            const entryTitle = document.createElement('h3');
+            entryTitle.textContent = title;
+            newEntry.appendChild(entryTitle);
+
+            // Añadir el contenido
+            const entryContent = document.createElement('p');
+            entryContent.textContent = content;
+            newEntry.appendChild(entryContent);
+
+            // Añadir la entrada al contenedor de entradas
+            document.getElementById('blogEntries').appendChild(newEntry);
+
+            // Limpiar el formulario
+            document.getElementById('blogForm').reset();
+        } else {
+            alert('Por favor, completa todos los campos.');
+        }
+    }
+</script>
+
+</body>
+</html>
